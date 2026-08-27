@@ -1,9 +1,7 @@
 import { Stack, useRouter } from "expo-router";
 import { Platform, ScrollView, StyleSheet } from "react-native";
 
-import { Button } from "@/components/button";
 import { Icon } from "@/components/icon";
-import { Text } from "@/components/text";
 
 import { useTheme } from "@/hooks/use-theme";
 
@@ -15,11 +13,6 @@ export default function HomeScreen() {
     <>
       <Stack.Screen
         options={{
-          headerSearchBarOptions: {
-            placeholder: "Pesquisar...",
-            hideWhenScrolling: true,
-            onChangeText: (event) => console.log(event.nativeEvent.text),
-          },
           headerRight: () => (
             <Icon
               name="bell-outline"
@@ -35,18 +28,7 @@ export default function HomeScreen() {
         style={[styles.scrollView, { backgroundColor: theme.background }]}
         contentContainerStyle={styles.contentContainer}
         contentInsetAdjustmentBehavior="automatic"
-      >
-        <Text>Welcome to Expo</Text>
-        <Button
-          variant="tinted"
-          onPress={() => router.push("/details")}
-          iconRight={(color) => (
-            <Icon name="arrow-right" size={18} color={color} animated={false} />
-          )}
-        >
-          Go to Details
-        </Button>
-      </ScrollView>
+      ></ScrollView>
     </>
   );
 }
