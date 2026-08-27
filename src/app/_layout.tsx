@@ -4,9 +4,9 @@ import { Platform } from "react-native";
 
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
 import { Icon } from "@/components/icon";
-import { IosNativeTabs } from "@/layouts/ios-native-tabs";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { IosNativeTabs } from "@/layouts/ios-native-tabs";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -60,7 +60,7 @@ export default function TabLayout() {
           name="(home)"
           options={{
             headerShown: false, // Hide the global header here to use the Stack's header
-            title: "Home",
+            title: "Início",
             tabBarIcon: ({ color, focused }) => (
               <Icon
                 name={focused ? "home" : "home-outline"}
@@ -71,13 +71,51 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="(menu)"
+          name="(chat)"
           options={{
-            headerShown: false,
-            title: "Menu",
+            title: "Chat",
             tabBarIcon: ({ color, focused }) => (
               <Icon
-                name={focused ? "menu" : "menu"}
+                name={focused ? "chat" : "chat-outline"}
+                size={24}
+                color={color as string}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="(shop)"
+          options={{
+            title: "Shop",
+            tabBarIcon: ({ color, focused }) => (
+              <Icon
+                name={focused ? "shopping" : "shopping-outline"}
+                size={24}
+                color={color as string}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="(services)"
+          options={{
+            title: "Serviços",
+            tabBarIcon: ({ color, focused }) => (
+              <Icon
+                name={focused ? "view-grid" : "view-grid-outline"}
+                size={24}
+                color={color as string}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="(profile)"
+          options={{
+            title: "Perfil",
+            tabBarIcon: ({ color, focused }) => (
+              <Icon
+                name={focused ? "account" : "account-outline"}
                 size={24}
                 color={color as string}
               />

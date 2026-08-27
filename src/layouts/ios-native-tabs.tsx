@@ -1,5 +1,5 @@
-import { NativeTabs } from "expo-router/unstable-native-tabs";
 import { MaterialDesignIcons } from "@react-native-vector-icons/material-design-icons";
+import { NativeTabs } from "expo-router/unstable-native-tabs";
 
 export function IosNativeTabs({ colors }: { colors: any }) {
   return (
@@ -9,9 +9,8 @@ export function IosNativeTabs({ colors }: { colors: any }) {
       labelStyle={{ selected: { color: colors.text } }}
     >
       <NativeTabs.Trigger name="(home)">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Label>Início</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          // src={require("@/assets/images/tabIcons/home.png")}
           src={{
             default: (
               <NativeTabs.Trigger.VectorIcon
@@ -29,16 +28,83 @@ export function IosNativeTabs({ colors }: { colors: any }) {
           renderingMode="template"
         />
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="(menu)">
-        <NativeTabs.Trigger.Label>Menu</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="(chat)">
+        <NativeTabs.Trigger.Label>Chat</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
-          // src={require("@/assets/images/tabIcons/explore.png")}
-          src={
-            <NativeTabs.Trigger.VectorIcon
-              family={MaterialDesignIcons}
-              name="menu"
-            />
-          }
+          src={{
+            default: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="chat-outline"
+              />
+            ),
+            selected: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="chat"
+              />
+            ),
+          }}
+          renderingMode="template"
+        />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="(shop)">
+        <NativeTabs.Trigger.Label>Shop</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          src={{
+            default: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="shopping-outline"
+              />
+            ),
+            selected: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="shopping"
+              />
+            ),
+          }}
+          renderingMode="template"
+        />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="(services)">
+        <NativeTabs.Trigger.Label>Serviços</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          src={{
+            default: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="view-grid-outline"
+              />
+            ),
+            selected: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="view-grid"
+              />
+            ),
+          }}
+          renderingMode="template"
+        />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="(profile)">
+        <NativeTabs.Trigger.Label>Perfil</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          src={{
+            default: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="account-outline"
+              />
+            ),
+            selected: (
+              <NativeTabs.Trigger.VectorIcon
+                family={MaterialDesignIcons}
+                name="account"
+              />
+            ),
+          }}
           renderingMode="template"
         />
       </NativeTabs.Trigger>
