@@ -27,12 +27,35 @@ export default function WebLayout() {
 
   const navItems = [
     {
-      name: "Home",
+      name: "Início",
       path: "/(home)",
       activeIcon: "home",
       inactiveIcon: "home-outline",
     },
-    { name: "Menu", path: "/(menu)", activeIcon: "menu", inactiveIcon: "menu" },
+    {
+      name: "Chat",
+      path: "/(chat)",
+      activeIcon: "chat",
+      inactiveIcon: "chat-outline",
+    },
+    {
+      name: "Shop",
+      path: "/(shop)",
+      activeIcon: "shopping",
+      inactiveIcon: "shopping-outline",
+    },
+    {
+      name: "Serviços",
+      path: "/(services)",
+      activeIcon: "view-grid",
+      inactiveIcon: "view-grid-outline",
+    },
+    {
+      name: "Perfil",
+      path: "/(profile)",
+      activeIcon: "account",
+      inactiveIcon: "account-outline",
+    },
   ] as const;
 
   const [fontsLoaded] = useFonts({
@@ -67,10 +90,9 @@ export default function WebLayout() {
             ]}
           >
             {navItems.map((item) => {
-              const isActive =
-                item.path === "/(menu)"
-                  ? (segments as string[]).includes("(menu)")
-                  : !(segments as string[]).includes("(menu)");
+              const isActive = (segments as string[]).includes(
+                item.path.replace("/", "")
+              );
               return (
                 <Pressable
                   key={item.path}
@@ -83,7 +105,7 @@ export default function WebLayout() {
                   <Icon
                     name={isActive ? item.activeIcon : item.inactiveIcon}
                     size={24}
-                    color={isActive ? colors.text : colors.textSecondary}
+                    color={isActive ? colors.primary : colors.textSecondary}
                   />
                   <Text
                     style={[
@@ -116,30 +138,29 @@ export default function WebLayout() {
             styles.navbar,
             {
               backgroundColor: colors.background,
-              borderBottomColor: colors.backgroundElement,
+              borderBottomColor: colors.border,
             },
           ]}
         >
           <View style={styles.logoContainer}>
-            <Text style={styles.logoText}>Expo Starter</Text>
+            <Icon name="bank" size={22} color={colors.primary} />
+            <Text style={[styles.logoText, { color: colors.primary }]}>Banking Demo</Text>
           </View>
           <View style={styles.navLinks}>
             {navItems.map((item) => {
-              const isActive =
-                item.path === "/(menu)"
-                  ? (segments as string[]).includes("(menu)")
-                  : !(segments as string[]).includes("(menu)");
+              const isActive = (segments as string[]).includes(
+                item.path.replace("/", "")
+              );
               return (
-                <Pressable
+                 <Pressable
                   key={item.path}
                   onPress={() => router.push(item.path)}
                   style={({ hovered }) => [
                     styles.navItem,
-                    isActive && { borderBottomColor: colors.text },
-                    !isActive &&
-                      hovered && { borderBottomColor: colors.border },
+                    isActive && { borderBottomColor: colors.primary },
+                    !isActive && hovered && { borderBottomColor: colors.border },
                     hovered && {
-                      backgroundColor: colors.backgroundElement + "40",
+                      backgroundColor: colors.backgroundElement,
                     },
                   ]}
                 >
@@ -153,7 +174,9 @@ export default function WebLayout() {
                         }
                         size={20}
                         color={
-                          isActive || hovered
+                          isActive
+                            ? colors.primary
+                            : hovered
                             ? colors.text
                             : colors.textSecondary
                         }
@@ -163,9 +186,12 @@ export default function WebLayout() {
                           styles.navText,
                           {
                             color:
-                              isActive || hovered
+                              isActive
+                                ? colors.text
+                                : hovered
                                 ? colors.text
                                 : colors.textSecondary,
+                            fontWeight: isActive ? "700" : "500",
                           },
                         ]}
                       >
@@ -199,33 +225,46 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     height: 64,
     borderBottomWidth: 1,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 4,
+    zIndex: 10,
   },
   logoContainer: {
     justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
   logoText: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: "700",
+    letterSpacing: -0.5,
   },
   navLinks: {
     flexDirection: "row",
-    gap: 24,
+    gap: 8,
     height: "100%",
   },
   navItem: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 12,
+    paddingHorizontal: 16,
     gap: 8,
     height: "100%",
-    borderBottomWidth: 2,
+    borderBottomWidth: 3,
     borderBottomColor: "transparent",
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
     // React Native Web support for smooth transitions
     ...({
       transitionProperty: "all",
-      transitionDuration: "150ms",
+      transitionDuration: "200ms",
     } as any),
   },
   navText: {
