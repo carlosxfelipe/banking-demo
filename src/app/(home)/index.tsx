@@ -1,34 +1,31 @@
-import { Stack, useRouter } from "expo-router";
-import { Platform, ScrollView, StyleSheet } from "react-native";
-
-import { Icon } from "@/components/icon";
+import { Stack } from "expo-router";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 import { useTheme } from "@/hooks/use-theme";
 
+import { BalanceCard } from "./components/balance-card";
+import { HeroHeader } from "./components/hero-header";
+import { QuickActions } from "./components/quick-actions";
+
 export default function HomeScreen() {
   const theme = useTheme();
-  const router = useRouter();
 
   return (
     <>
-      <Stack.Screen
-        options={{
-          headerRight: () => (
-            <Icon
-              name="bell-outline"
-              size={22}
-              color={theme.text}
-              onPress={() => console.log("Bell pressed!")}
-              style={Platform.OS === "web" ? { marginRight: 16 } : undefined}
-            />
-          ),
-        }}
-      />
+      <Stack.Screen options={{ headerShown: false }} />
       <ScrollView
         style={[styles.scrollView, { backgroundColor: theme.background }]}
-        contentContainerStyle={styles.contentContainer}
-        contentInsetAdjustmentBehavior="automatic"
-      ></ScrollView>
+        contentInsetAdjustmentBehavior="never"
+        showsVerticalScrollIndicator={false}
+      >
+        <HeroHeader>
+          <BalanceCard />
+        </HeroHeader>
+
+        <View style={[styles.content, { backgroundColor: theme.background }]}>
+          <QuickActions />
+        </View>
+      </ScrollView>
     </>
   );
 }
@@ -37,8 +34,12 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  contentContainer: {
-    padding: 16,
-    gap: 12,
+  content: {
+    flex: 1,
+    padding: 20,
+    gap: 16,
+    marginTop: -16,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
 });

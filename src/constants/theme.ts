@@ -9,7 +9,7 @@ import { Platform } from "react-native";
 
 export const Colors = {
   light: {
-    primary: "#007AFF",
+    primary: "#E8003D",
     onPrimary: "#ffffff",
     background: "#ffffff",
     backgroundElement: "#F0F0F3",
@@ -17,12 +17,12 @@ export const Colors = {
     text: "#000000",
     textSecondary: "#60646C",
     border: "#C6C6C8",
-    notification: "#FF3B30",
+    notification: "#39D353",
     placeholder: "#3C3C4399",
     inputBackground: "rgba(118,118,128,0.12)",
   },
   dark: {
-    primary: "#0A84FF",
+    primary: "#E8003D",
     onPrimary: "#ffffff",
     background: "#000000",
     backgroundElement: "#212225",
@@ -30,7 +30,7 @@ export const Colors = {
     text: "#ffffff",
     textSecondary: "#B0B4BA",
     border: "#38383A",
-    notification: "#FF453A",
+    notification: "#39D353",
     placeholder: "#EBEBF599",
     inputBackground: "rgba(118,118,128,0.24)",
   },

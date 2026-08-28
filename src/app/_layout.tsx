@@ -51,7 +51,7 @@ export default function TabLayout() {
             backgroundColor: colors.background,
             borderTopColor: colors.backgroundElement,
           },
-          tabBarActiveTintColor: colors.text,
+          tabBarActiveTintColor: colors.primary,
           tabBarInactiveTintColor: colors.textSecondary,
         }}
       >

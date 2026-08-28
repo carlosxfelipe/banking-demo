@@ -5,7 +5,7 @@ export function IosNativeTabs({ colors }: { colors: any }) {
   return (
     <NativeTabs
       backgroundColor={colors.background}
-      indicatorColor={colors.backgroundElement}
+      iconColor={{ default: colors.textSecondary, selected: colors.primary }}
       labelStyle={{ selected: { color: colors.text } }}
     >
       <NativeTabs.Trigger name="(home)">
