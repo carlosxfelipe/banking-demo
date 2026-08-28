@@ -10,12 +10,7 @@ export function BalanceCard() {
   const [visible, setVisible] = useState(true);
 
   return (
-    <View
-      style={[
-        styles.card,
-        { backgroundColor: theme.background },
-      ]}
-    >
+    <View style={[styles.card, { backgroundColor: theme.background }]}>
       <View style={styles.top}>
         <Text style={styles.label} themeColor="textSecondary">
           Saldo disponível

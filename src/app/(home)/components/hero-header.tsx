@@ -5,8 +5,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon } from "@/components/icon";
 import { useTheme } from "@/hooks/use-theme";
 
-const HERO_COLORS = ["#E8003D", "#B8002E"] as const;
-const OVERSCROLL_COLOR = "#E8003D";
+const HERO_COLORS = ["#D9043D", "#9B1235"] as const;
+const OVERSCROLL_COLOR = "#D9043D";
 const AVATAR_URI =
   "https://avatars.githubusercontent.com/u/85801709?s=400&u=01cce0318ea853ce1a133699bc6b2af1919094d6&v=4";
 
