@@ -3,6 +3,7 @@ import { StyleSheet, View, Pressable } from "react-native";
 import { Icon } from "@/components/icon";
 import { Text } from "@/components/text";
 import { useTheme } from "@/hooks/use-theme";
+import { formatCurrency } from "@/utils/format-currency";
 
 type Asset = {
   ticker: string;
@@ -47,10 +48,6 @@ const PORTFOLIO: Asset[] = [
     avgPrice: 92.31,
   },
 ];
-
-function formatCurrency(value: number) {
-  return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-}
 
 function calcReturn(asset: Asset) {
   const total = asset.quantity * asset.currentPrice;
@@ -177,7 +174,8 @@ export function InvestmentsCard() {
                 <View style={styles.assetInfo}>
                   <Text style={styles.assetName}>{asset.name}</Text>
                   <Text style={styles.assetQty} themeColor="textSecondary">
-                    {asset.quantity} {asset.type === "acao" ? "ações" : "cotas"} · R$ {asset.currentPrice.toFixed(2)}
+                    {asset.quantity} {asset.type === "acao" ? "ações" : "cotas"}{" "}
+                    · R$ {asset.currentPrice.toFixed(2)}
                   </Text>
                 </View>
                 <View style={styles.assetRight}>

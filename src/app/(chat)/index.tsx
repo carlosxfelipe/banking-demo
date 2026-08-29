@@ -16,6 +16,7 @@ type Message = {
   id: string;
   text: string;
   sender: "user" | "bot";
+  timestamp: Date;
 };
 
 const INITIAL_MESSAGES: Message[] = [
@@ -23,6 +24,7 @@ const INITIAL_MESSAGES: Message[] = [
     id: "1",
     text: "Olá! Eu sou a BIANCA, sua assistente virtual do Banking Demo. Como posso ajudar com a sua conta hoje?",
     sender: "bot",
+    timestamp: new Date(),
   },
 ];
 
@@ -39,6 +41,7 @@ export default function ChatScreen() {
       id: Date.now().toString(),
       text: inputText.trim(),
       sender: "user",
+      timestamp: new Date(),
     };
 
     setMessages((prev) => [...prev, newUserMessage]);
@@ -50,6 +53,7 @@ export default function ChatScreen() {
         id: (Date.now() + 1).toString(),
         text: "Entendi! Por ser uma demonstração, não tenho acesso a dados reais, mas estou aqui para te mostrar como essa tela funciona. Mais alguma dúvida?",
         sender: "bot",
+        timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botResponse]);
     }, 1000);
@@ -94,6 +98,20 @@ export default function ChatScreen() {
                 }}
               >
                 {msg.text}
+              </Text>
+              <Text
+                style={[
+                  styles.timestamp,
+                  {
+                    color: isUser ? theme.onPrimary : theme.textSecondary,
+                    textAlign: isUser ? "right" : "left",
+                  },
+                ]}
+              >
+                {msg.timestamp.toLocaleTimeString("pt-BR", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
               </Text>
             </View>
           );
@@ -170,6 +188,11 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginBottom: 4,
     opacity: 0.7,
+  },
+  timestamp: {
+    fontSize: 10,
+    marginTop: 6,
+    opacity: 0.6,
   },
   inputContainer: {
     flexDirection: "row",
