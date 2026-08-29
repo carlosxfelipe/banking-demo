@@ -1,6 +1,7 @@
+import { StyleSheet, View } from "react-native";
+
 import { Text } from "@/components/text";
 import { useTheme } from "@/hooks/use-theme";
-import { StyleSheet, View } from "react-native";
 
 export default function ShopScreen() {
   const theme = useTheme();
