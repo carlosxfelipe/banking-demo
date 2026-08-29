@@ -91,7 +91,7 @@ export default function WebLayout() {
           >
             {navItems.map((item) => {
               const isActive = (segments as string[]).includes(
-                item.path.replace("/", "")
+                item.path.replace("/", ""),
               );
               return (
                 <Pressable
@@ -144,21 +144,24 @@ export default function WebLayout() {
         >
           <View style={styles.logoContainer}>
             <Icon name="bank" size={22} color={colors.primary} />
-            <Text style={[styles.logoText, { color: colors.primary }]}>Banking Demo</Text>
+            <Text style={[styles.logoText, { color: colors.primary }]}>
+              Banking Demo
+            </Text>
           </View>
           <View style={styles.navLinks}>
             {navItems.map((item) => {
               const isActive = (segments as string[]).includes(
-                item.path.replace("/", "")
+                item.path.replace("/", ""),
               );
               return (
-                 <Pressable
+                <Pressable
                   key={item.path}
                   onPress={() => router.push(item.path)}
                   style={({ hovered }) => [
                     styles.navItem,
                     isActive && { borderBottomColor: colors.primary },
-                    !isActive && hovered && { borderBottomColor: colors.border },
+                    !isActive &&
+                      hovered && { borderBottomColor: colors.border },
                     hovered && {
                       backgroundColor: colors.backgroundElement,
                     },
@@ -177,18 +180,17 @@ export default function WebLayout() {
                           isActive
                             ? colors.primary
                             : hovered
-                            ? colors.text
-                            : colors.textSecondary
+                              ? colors.text
+                              : colors.textSecondary
                         }
                       />
                       <Text
                         style={[
                           styles.navText,
                           {
-                            color:
-                              isActive
-                                ? colors.text
-                                : hovered
+                            color: isActive
+                              ? colors.text
+                              : hovered
                                 ? colors.text
                                 : colors.textSecondary,
                             fontWeight: isActive ? "700" : "500",

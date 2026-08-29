@@ -1,14 +1,13 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Image, Platform, StyleSheet, Text, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Icon } from "@/components/icon";
 import { useTheme } from "@/hooks/use-theme";
 
-const HERO_COLORS = ["#D9043D", "#9B1235"] as const;
+const HERO_COLORS = ["#D9043D", "#C20A3D"] as const;
 const OVERSCROLL_COLOR = "#D9043D";
 const AVATAR_URI =
-  "https://avatars.githubusercontent.com/u/85801709?s=400&u=01cce0318ea853ce1a133699bc6b2af1919094d6&v=4";
+  "https://media.licdn.com/dms/image/v2/D4D03AQGsNV8xuOh9Lw/profile-displayphoto-crop_800_800/B4DaAmp2Y3I8AI-/0/1787354900839?e=1789603200&v=beta&t=cuQA0EvD-KxS3OZDhb2RbFchDvmVQwknhdMwVC26s3o";
 
 interface HeroHeaderProps {
   children?: React.ReactNode;
@@ -16,7 +15,6 @@ interface HeroHeaderProps {
 
 export function HeroHeader({ children }: HeroHeaderProps) {
   const theme = useTheme();
-  const insets = useSafeAreaInsets();
 
   return (
     <>
@@ -38,13 +36,24 @@ export function HeroHeader({ children }: HeroHeaderProps) {
             <Image source={{ uri: AVATAR_URI }} style={styles.avatar} />
             <Text style={styles.name}>Olá, Carlos Felipe</Text>
           </View>
-          <Icon
-            name="bell-outline"
-            size={24}
-            color="#fff"
-            onPress={() => console.log("Bell pressed!")}
-            style={Platform.OS === "web" ? { marginRight: 16 } : undefined}
-          />
+          <View
+            style={[
+              styles.bellContainer,
+              Platform.OS === "web" && { marginRight: 16 },
+            ]}
+          >
+            <Icon
+              name="bell-outline"
+              size={24}
+              color="#fff"
+              onPress={() => console.log("Bell pressed!")}
+            />
+            <View
+              style={[styles.badge, { backgroundColor: theme.notification }]}
+            >
+              <Text style={styles.badgeText}>3</Text>
+            </View>
+          </View>
         </View>
 
         {children}
@@ -87,5 +96,24 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#fff",
     fontWeight: "600",
+  },
+  bellContainer: {
+    position: "relative",
+  },
+  badge: {
+    position: "absolute",
+    top: -4,
+    right: -4,
+    borderRadius: 8,
+    minWidth: 16,
+    height: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 4,
+  },
+  badgeText: {
+    color: "#000000",
+    fontSize: 10,
+    fontWeight: "bold",
   },
 });
