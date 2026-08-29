@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 
 import { Icon } from "@/components/icon";
+import { NubankIcon, InterIcon } from "@/components/bank-icons";
 import { Text } from "@/components/text";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -36,17 +37,17 @@ export function BalanceCard() {
         <View
           style={[styles.pill, { backgroundColor: theme.backgroundElement }]}
         >
-          <Icon name="arrow-up" size={12} color="#22c55e" />
+          <NubankIcon size={14} />
           <Text style={styles.pillText} themeColor="textSecondary">
-            {visible ? "R$ 5.200" : "••••"}
+            {visible ? "Nubank: R$ 5.200" : "Nubank: ••••"}
           </Text>
         </View>
         <View
           style={[styles.pill, { backgroundColor: theme.backgroundElement }]}
         >
-          <Icon name="arrow-down" size={12} color="#f87171" />
+          <InterIcon size={14} />
           <Text style={styles.pillText} themeColor="textSecondary">
-            {visible ? "R$ 1.820" : "••••"}
+            {visible ? "Inter: R$ 1.820" : "Inter: ••••"}
           </Text>
         </View>
       </View>

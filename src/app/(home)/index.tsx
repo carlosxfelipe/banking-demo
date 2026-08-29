@@ -6,6 +6,7 @@ import { useTheme } from "@/hooks/use-theme";
 import { BalanceCard } from "./components/balance-card";
 import { CreditCardLimit } from "./components/credit-card-limit";
 import { HeroHeader } from "./components/hero-header";
+import { InvestmentsCard } from "./components/investments-card";
 import { PromoCard } from "./components/promo-card";
 import { QuickActions } from "./components/quick-actions";
 
@@ -27,6 +28,7 @@ export default function HomeScreen() {
         <View style={[styles.content, { backgroundColor: theme.background }]}>
           <QuickActions />
           <CreditCardLimit />
+          <InvestmentsCard />
           <PromoCard />
         </View>
       </ScrollView>

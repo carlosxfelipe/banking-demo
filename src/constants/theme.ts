@@ -20,6 +20,11 @@ export const Colors = {
     notification: "#39D353",
     placeholder: "#3C3C4399",
     inputBackground: "rgba(118,118,128,0.12)",
+    // Semantic return colors (investments, transactions)
+    returnPositive: "#16a34a",
+    returnPositiveBg: "#dcfce7",
+    returnNegative: "#dc2626",
+    returnNegativeBg: "#fee2e2",
   },
   dark: {
     primary: "#E8003D",
@@ -33,6 +38,11 @@ export const Colors = {
     notification: "#39D353",
     placeholder: "#EBEBF599",
     inputBackground: "rgba(118,118,128,0.24)",
+    // Semantic return colors (investments, transactions)
+    returnPositive: "#4ade80",
+    returnPositiveBg: "#14532d",
+    returnNegative: "#f87171",
+    returnNegativeBg: "#7f1d1d",
   },
 } as const;
 
