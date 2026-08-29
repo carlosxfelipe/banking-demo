@@ -3,12 +3,12 @@ import { ScrollView, StyleSheet, View } from "react-native";
 
 import { useTheme } from "@/hooks/use-theme";
 
-import { BalanceCard } from "./components/balance-card";
-import { CreditCardLimit } from "./components/credit-card-limit";
-import { HeroHeader } from "./components/hero-header";
-import { InvestmentsCard } from "./components/investments-card";
-import { PromoCard } from "./components/promo-card";
-import { QuickActions } from "./components/quick-actions";
+import { BalanceCard } from "@/components/home/balance-card";
+import { CreditCardLimit } from "@/components/home/credit-card-limit";
+import { HeroHeader } from "@/components/home/hero-header";
+import { InvestmentsCard } from "@/components/home/investments-card";
+import { PromoCard } from "@/components/home/promo-card";
+import { QuickActions } from "@/components/home/quick-actions";
 
 export default function HomeScreen() {
   const theme = useTheme();

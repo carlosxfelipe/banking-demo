@@ -15,7 +15,12 @@ import { Icon } from "@/components/icon";
 import { useTheme } from "@/hooks/use-theme";
 import { LinearGradient } from "expo-linear-gradient";
 import { formatCurrency } from "@/utils/format-currency";
-import { type Product, type Category, CATEGORIES, PRODUCTS } from "./shop-data";
+import {
+  type Product,
+  type Category,
+  CATEGORIES,
+  PRODUCTS,
+} from "@/data/shop-data";
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = (width - 48) / 2;

@@ -110,7 +110,8 @@ export const PRODUCTS: Product[] = [
     reviews: 3412,
     category: "audio",
     badge: "Mais vendido",
-    imageUrl: "",
+    imageUrl:
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MTJV3?wid=800&hei=800&fmt=png-alpha",
   },
   {
     id: "8",
