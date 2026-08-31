@@ -35,11 +35,18 @@ Follow these steps to get the project up and running on your local machine.
    npm run start
    ```
    
-   To run it directly on iOS or Android (requires simulator/emulator setup):
+   To run it directly on iOS or Android with Expo Go (requires simulator/emulator setup):
    ```bash
-   npm run ios:go
+   npm run ios
    # or
-   npm run android:go
+   npm run android
+   ```
+   
+   To run the app natively:
+   ```bash
+   npm run ios:native
+   # or
+   npm run android:native
    ```
    
    To run the web version:
